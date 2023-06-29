@@ -3,7 +3,7 @@ import {FaTrashAlt} from 'react-icons/fa'
 import styles from './Todo.module.css'
 
 export default function Todo({todo, onUpdate, onDelete}) {
-  const {text, status} = todo;
+  const {id, text, status} = todo;
   const handleUpdate = (e) => {
     const status = e.target.checked ? 'completed' : 'active'
     onUpdate({...todo, status})
@@ -17,11 +17,11 @@ export default function Todo({todo, onUpdate, onDelete}) {
       <input
         className={styles.checkbox}
         type="checkbox"
-        id={todo.id}
+        id
         checked={status === 'completed'}
         onChange={handleUpdate}
       />
-      <label className={styles.text} htmlFor={todo.id}>{text}</label>
+      <label className={styles.text} htmlFor={id}>{text}</label>
       <span className={styles.icon}>
         <button
           className={styles.button}
